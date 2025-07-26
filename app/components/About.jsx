@@ -69,7 +69,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <div className="h-16 bg-base-200 rounded-xl mb-10"></div>
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="h-[500px] bg-base-200 rounded-2xl"></div>
+            <div className="h-[400px] bg-base-200 rounded-2xl"></div>
             <div className="space-y-4">
               <div className="h-6 bg-base-200 rounded"></div>
               <div className="h-6 bg-base-200 rounded w-3/4"></div>
