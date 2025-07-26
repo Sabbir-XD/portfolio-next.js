@@ -21,10 +21,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-11/12 mx-auto`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
-        {children}
+        <main className="w-11/12 mx-auto">{children}</main>
       </body>
     </html>
   );

@@ -14,20 +14,18 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Portfolio", path: "/portfolio" },
-    { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" }
+    { name: "About", path: "#about" },
+    { name: "Portfolio", path: "#Portfolio" },
+    { name: "Contact", path: "/contact" },
   ];
 
   if (!isMounted) {
-    return (
-      <nav className="sticky top-0 z-50 bg-white/20 backdrop-blur-md border-b border-white/10 shadow-sm h-16" />
-    );
+    return <nav className="sticky top-0 z-50 bg-gray-900 h-16" />;
   }
 
   return (
     <motion.nav
-      className="sticky top-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/10 shadow-sm"
+      className="sticky top-0 z-50 bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 backdrop-blur-md border-b border-white/10 shadow-lg"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100 }}
@@ -67,13 +65,10 @@ export default function Navbar() {
           </div>
 
           {/* Logo/Brand */}
-          <motion.div
-            className="flex-shrink-0"
-            whileHover={{ scale: 1.05 }}
-          >
-            <Link href="/" className="text-white flex items-center">
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
-                YourBrand
+          <motion.div className="flex-shrink-0" whileHover={{ scale: 1.05 }}>
+            <Link href="/" className="flex items-center">
+              <span className="text-2xl font-extrabold bg-gradient-to-r from-pink-500 to-purple-400 bg-clip-text text-transparent">
+                Sabbir.Dev
               </span>
             </Link>
           </motion.div>
@@ -91,7 +86,7 @@ export default function Navbar() {
                   href={link.path}
                   className={`px-3 py-2 text-sm font-medium transition-colors ${
                     activeLink === link.path
-                      ? "text-white"
+                      ? "text-pink-400"
                       : "text-gray-300 hover:text-white"
                   }`}
                 >
@@ -110,10 +105,11 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Right side icons */}
+          {/* Right side icons + Resume button */}
           <div className="flex items-center space-x-4">
+            {/* Search icon */}
             <motion.button
-              className="p-1 rounded-full text-gray-300 hover:text-white focus:outline-none"
+              className="p-1 rounded-full text-gray-300 hover:text-pink-400 focus:outline-none"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -132,8 +128,9 @@ export default function Navbar() {
               </svg>
             </motion.button>
 
+            {/* Notification */}
             <motion.button
-              className="p-1 rounded-full text-gray-300 hover:text-white focus:outline-none relative"
+              className="p-1 rounded-full text-gray-300 hover:text-pink-400 focus:outline-none relative"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -157,13 +154,17 @@ export default function Navbar() {
               />
             </motion.button>
 
-            <motion.button
-              className="ml-4 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-600 text-white font-medium text-sm shadow-lg"
+            {/* Resume Button */}
+            <motion.a
+              href="/resume.pdf"
+              target="_blank"
+              download
+              className="ml-4 px-4 py-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-medium text-sm shadow-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Hire Me
-            </motion.button>
+              Resume
+            </motion.a>
           </div>
         </div>
       </div>
@@ -194,6 +195,17 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               ))}
+              {/* Resume in mobile menu */}
+              <motion.a
+                href="/resume.pdf"
+                target="_blank"
+                download
+                className="block px-3 py-2 rounded-md text-base font-medium text-pink-400 hover:bg-gray-800/50"
+                whileHover={{ x: 5 }}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Resume
+              </motion.a>
             </div>
           </motion.div>
         )}

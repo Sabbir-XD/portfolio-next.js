@@ -1,8 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
-const CountUp = dynamic(() => import("react-countup"), { ssr: false });
 import { useEffect, useRef, useState } from "react";
-// import CountUp from "react-countup";
 import {
   FaLinkedinIn,
   FaGithub,
@@ -14,6 +12,10 @@ import {
 import Image from "next/image";
 import ProgressBar from "@ramonak/react-progress-bar";
 import myImage2 from "@/public/sabbir-image.jpg";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+const CountUp = dynamic(() => import("react-countup"), { ssr: false });
 
 export default function About() {
   const [isMounted, setIsMounted] = useState(false);
@@ -21,6 +23,7 @@ export default function About() {
 
   useEffect(() => {
     setIsMounted(true);
+    AOS.init({ duration: 1000, once: true });
     if (tiltRef.current) {
       import("vanilla-tilt").then(({ default: VanillaTilt }) => {
         VanillaTilt.init(tiltRef.current, {
@@ -63,36 +66,24 @@ export default function About() {
     { name: "DigitalEase", logo: "📊" },
   ];
 
-  if (!isMounted) {
-    return (
-      <section className="bg-base-100 text-base-content py-12 px-3 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="h-16 bg-base-200 rounded-xl mb-10"></div>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="h-[400px] bg-base-200 rounded-2xl"></div>
-            <div className="space-y-4">
-              <div className="h-6 bg-base-200 rounded"></div>
-              <div className="h-6 bg-base-200 rounded w-3/4"></div>
-              <div className="h-6 bg-base-200 rounded w-5/6"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section
       id="about"
-      className="bg-base-100 text-base-content py-12 px-3 sm:px-6 lg:px-8"
+      className="bg-base-100 text-base-content py-16 px-3 sm:px-6 lg:px-8"
     >
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl text-center font-bold mb-10">
-          About <span className="text-primary">Me</span>
+        <h2
+          className="text-4xl text-center font-bold mb-14"
+          data-aos="fade-up"
+        >
+          About <span className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">Me</span>
         </h2>
 
         {/* Profile Section */}
-        <div className="bg-base-200 rounded-2xl p-5 lg:p-10 mb-14 shadow-lg">
+        <div
+          className="bg-base-200 rounded-2xl p-6 lg:p-10 mb-14 shadow-lg backdrop-blur-md border border-white/10"
+          data-aos="fade-up"
+        >
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div ref={tiltRef} className="tilt-element">
               <Image
@@ -100,48 +91,30 @@ export default function About() {
                 alt="Profile"
                 className="rounded-2xl shadow-lg"
                 width={500}
-                height={350}
+                height={500}
                 priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                placeholder="blur"
               />
             </div>
             <div className="space-y-4">
-              <p className="text-lg">
-                Hello! I'm Sabbir Hossain, a dedicated front-end developer from
-                Bangladesh with 1+ years of experience. My journey began in 2024
-                when I created my first HTML page and was fascinated by how code
-                shapes the web.
+              <p className="text-lg leading-relaxed">
+                Hi! I’m <span className="font-bold text-primary">Sabbir Hossain</span>, a passionate Front-End Developer from Bangladesh with 1+ years of experience crafting interactive, responsive, and user-friendly web applications.
               </p>
-              <p className="text-lg">
-                Now I build modern apps using React, Firebase, and Tailwind. I
-                love solving real-world problems and sharing what I learn.
+              <p className="text-lg leading-relaxed">
+                My core stack includes React, Next.js, Firebase, and Tailwind CSS. I love transforming ideas into elegant digital experiences and continuously learning new technologies.
               </p>
-              <p className="text-lg">
-                Beyond coding, I enjoy cricket, reading, traveling, and quality
-                time with friends.
+              <p className="text-lg leading-relaxed">
+                Outside of coding, I enjoy cricket, traveling, reading, and connecting with people who share creative visions.
               </p>
               <div className="flex gap-4 mt-4">
-                <a
-                  href="https://www.linkedin.com/in/sabbir-xd/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-sm btn-outline btn-primary rounded-full hover:-translate-y-1 transition-transform"
-                >
+                <a href="https://www.linkedin.com/in/sabbir-xd/" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline btn-primary rounded-full hover:-translate-y-1 transition-transform">
                   <FaLinkedinIn />
                 </a>
-                <a
-                  href="https://github.com/Sabbir-XD"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-sm btn-outline btn-primary rounded-full hover:-translate-y-1 transition-transform"
-                >
+                <a href="https://github.com/Sabbir-XD" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline btn-primary rounded-full hover:-translate-y-1 transition-transform">
                   <FaGithub />
                 </a>
-                <a
-                  href="https://twitter.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-sm btn-outline btn-primary rounded-full hover:-translate-y-1 transition-transform"
-                >
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline btn-primary rounded-full hover:-translate-y-1 transition-transform">
                   <FaTwitter />
                 </a>
               </div>
@@ -150,9 +123,12 @@ export default function About() {
         </div>
 
         {/* Skills */}
-        <div className="bg-base-200 rounded-2xl p-5 lg:p-10 mb-14 shadow-lg">
+        <div
+          className="bg-base-200 rounded-2xl p-6 lg:p-10 mb-14 shadow-lg backdrop-blur-md border border-white/10"
+          data-aos="fade-right"
+        >
           <h2 className="text-3xl font-bold mb-8">
-            My <span className="text-primary">Skills</span>
+            My <span className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">Skills</span>
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {skills.map((skill, idx) => (
@@ -163,10 +139,10 @@ export default function About() {
                 </div>
                 <ProgressBar
                   completed={skill.level}
-                  bgColor="#3B82F6"
+                  bgColor="linear-gradient(90deg, #ec4899, #8b5cf6)"
                   baseBgColor="#E5E7EB"
-                  height="12px"
-                  borderRadius="8px"
+                  height="14px"
+                  borderRadius="10px"
                   isLabelVisible={false}
                   animateOnRender={true}
                   transitionDuration="1s"
@@ -177,14 +153,17 @@ export default function About() {
         </div>
 
         {/* Stats */}
-        <div className="bg-base-200 rounded-2xl p-5 lg:p-10 mb-14 shadow-lg">
+        <div
+          className="bg-base-200 rounded-2xl p-6 lg:p-10 mb-14 shadow-lg backdrop-blur-md border border-white/10"
+          data-aos="zoom-in"
+        >
           <div className="grid md:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="text-center p-4 hover:bg-base-300 rounded-xl transition-colors"
+                className="text-center p-6 bg-base-100 rounded-xl shadow hover:shadow-lg transition-transform hover:-translate-y-1"
               >
-                <div className="text-4xl text-primary mb-3 flex justify-center">
+                <div className="text-5xl text-primary mb-3 flex justify-center">
                   {stat.icon}
                 </div>
                 <div className="text-5xl font-bold mb-2">
@@ -199,7 +178,6 @@ export default function About() {
                   )}
                   {index === 2 && "+"}
                 </div>
-
                 <p className="text-lg">{stat.label}</p>
               </div>
             ))}
@@ -207,10 +185,13 @@ export default function About() {
         </div>
 
         {/* Clients Section */}
-        <div className="bg-base-200 rounded-2xl p-8 shadow-lg overflow-hidden">
+        <div
+          className="bg-base-200 rounded-2xl p-8 shadow-lg backdrop-blur-md border border-white/10"
+          data-aos="fade-up"
+        >
           <h2 className="text-3xl font-bold mb-8 text-center">
             <span>Trusted By </span>
-            <span className="text-primary">Clients</span>
+            <span className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">Clients</span>
           </h2>
           <div className="relative w-full overflow-hidden">
             <div className="animate-marquee whitespace-nowrap flex">
@@ -220,9 +201,7 @@ export default function About() {
                   className="inline-flex flex-col items-center justify-center w-28 h-28 mx-6 p-4 bg-base-100 rounded-xl shadow hover:scale-105 transition-transform"
                 >
                   <span className="text-4xl mb-1">{client.logo}</span>
-                  <p className="text-xs font-semibold text-center">
-                    {client.name}
-                  </p>
+                  <p className="text-xs font-semibold text-center">{client.name}</p>
                 </div>
               ))}
             </div>

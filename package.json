@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ramonak/react-progress-bar": "^5.4.0",
+    "aos": "^2.3.4",
     "daisyui": "^5.0.47",
     "framer-motion": "^12.23.9",
     "next": "15.4.4",
