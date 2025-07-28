@@ -1,4 +1,5 @@
 import About from "./components/About";
+import Contact from "./components/Contact";
 import Portfolio from "./components/Portfolio";
 // app/page.js
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <div>
       <About />
       <Portfolio />
+      <Contact />
     </div>
   );
 }
