@@ -16,32 +16,28 @@ import { motion } from "framer-motion";
 export default function Contact() {
   const contactCards = [
     {
-      icon: <FaMapMarkerAlt className="text-2xl" />,
+      icon: <FaMapMarkerAlt />,
       title: "Location",
       desc: "Dhaka, Bangladesh",
-      bg: "bg-blue-100",
-      iconColor: "text-primary",
+      color: "text-cyan-400",
     },
     {
-      icon: <FaPhoneAlt className="text-2xl" />,
+      icon: <FaPhoneAlt />,
       title: "Phone",
       desc: "+8801605-667743",
-      bg: "bg-green-100",
-      iconColor: "text-green-600",
+      color: "text-purple-400",
     },
     {
-      icon: <FaEnvelope className="text-2xl" />,
+      icon: <FaEnvelope />,
       title: "Email",
-      desc: "workhardproperly@gmail.com",
-      bg: "bg-purple-100",
-      iconColor: "text-purple-600",
+      desc: "hossain.sabbir.dev@gmail.com",
+      color: "text-pink-400",
     },
     {
-      icon: <FaGlobeAmericas className="text-2xl" />,
+      icon: <FaGlobeAmericas />,
       title: "Timezone",
       desc: "PST (UTC-8)",
-      bg: "bg-amber-100",
-      iconColor: "text-amber-600",
+      color: "text-yellow-400",
     },
   ];
 
@@ -49,14 +45,19 @@ export default function Contact() {
     {
       icon: <FaLinkedinIn />,
       url: "#",
-      color: "bg-primary",
+      color: "bg-cyan-600 hover:bg-cyan-500",
       label: "LinkedIn",
     },
-    { icon: <FaTwitter />, url: "#", color: "bg-sky-400", label: "Twitter" },
+    { 
+      icon: <FaTwitter />, 
+      url: "#", 
+      color: "bg-blue-400 hover:bg-blue-300", 
+      label: "Twitter" 
+    },
     {
       icon: <FaFacebookF />,
       url: "#",
-      color: "bg-blue-800",
+      color: "bg-indigo-600 hover:bg-indigo-500",
       label: "Facebook",
     },
   ];
@@ -72,16 +73,14 @@ export default function Contact() {
 
   return (
     <section
-      data-aos="fade-up"
-      data-aos-duration="3000"
       id="contact"
-      className="relative min-h-screen bg-base-100 text-base-content py-12 px-1 transition-colors duration-500 overflow-hidden"
+      className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-gray-800 text-gray-300 overflow-hidden mt-8 rounded-2xl"
     >
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
-      <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+      {/* Glow effects */}
+      <div className="absolute -top-20 -left-20 w-64 h-64 bg-purple-500 rounded-full filter blur-3xl opacity-10"></div>
+      <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-cyan-500 rounded-full filter blur-3xl opacity-10"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -89,55 +88,58 @@ export default function Contact() {
           variants={fadeIn}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Get In <span className="text-primary">Touch</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Get In <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Touch</span>
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
-          <p className="text-center max-w-2xl mx-auto mb-12 text-base-content/70">
+          <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto mb-6"></div>
+          <p className="text-lg max-w-2xl mx-auto text-gray-400">
             Have a project in mind or want to discuss potential opportunities?
             I'd love to hear from you.
           </p>
         </motion.div>
 
-        <div className="flex flex-col lg:flex-row gap-12">
+        <div className="flex flex-col lg:flex-row gap-8">
           {/* Left Side - Contact Info */}
           <div className="w-full lg:w-2/5 space-y-8">
-            <motion.div variants={fadeIn} className="grid grid-cols-1 gap-6">
+            <motion.div 
+              variants={fadeIn}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6"
+            >
               {contactCards.map((item, i) => (
                 <motion.div
                   key={i}
                   variants={fadeIn}
                   whileHover={{ y: -5 }}
-                  className={`${item.bg} p-6 rounded-xl shadow-sm hover:shadow-md transition-all`}
+                  className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyan-400/30 transition-all"
                 >
-                  <div className={`${item.iconColor} mb-4`}>{item.icon}</div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-1">
+                  <div className={`${item.color} text-2xl mb-4`}>{item.icon}</div>
+                  <h3 className="text-xl font-semibold text-white mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600">{item.desc}</p>
+                  <p className="text-gray-400">{item.desc}</p>
                 </motion.div>
               ))}
             </motion.div>
 
             <motion.div
               variants={fadeIn}
-              className="bg-white p-6 rounded-xl shadow-sm"
+              className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700"
             >
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">
+              <h3 className="text-xl font-semibold text-white mb-4">
                 Availability
               </h3>
-              <div className="flex items-center space-x-4 mb-3">
-                <FaClock className="text-primary text-xl" />
+              <div className="flex items-start space-x-4 mb-4">
+                <FaClock className="text-cyan-400 text-xl mt-1" />
                 <div>
-                  <p className="text-gray-600">Sunday - Thursday</p>
-                  <p className="font-medium text-gray-800">9:00 AM - 5:00 PM</p>
+                  <p className="text-gray-400">Sunday - Thursday</p>
+                  <p className="font-medium text-white">9:00 AM - 5:00 PM</p>
                 </div>
               </div>
-              <div className="flex items-center space-x-4">
-                <FaCheckCircle className="text-green-600 text-xl" />
+              <div className="flex items-start space-x-4">
+                <FaCheckCircle className="text-green-400 text-xl mt-1" />
                 <div>
-                  <p className="text-gray-600">Freelance Available</p>
-                  <p className="font-medium text-gray-800">For your projects</p>
+                  <p className="text-gray-400">Freelance Available</p>
+                  <p className="font-medium text-white">For your projects</p>
                 </div>
               </div>
             </motion.div>
@@ -147,31 +149,32 @@ export default function Contact() {
               className="flex space-x-4 justify-center lg:justify-start"
             >
               {socialLinks.map((social, i) => (
-                <a
+                <motion.a
                   key={i}
                   href={social.url}
-                  className={`${social.color} text-white p-3 rounded-full hover:opacity-90 transition-all`}
-                  aria-label={`${social.label} profile`} // ✅ Static label instead of function.toString()
+                  whileHover={{ y: -3 }}
+                  whileTap={{ scale: 0.9 }}
+                  className={`${social.color} text-white p-4 rounded-full transition-all`}
+                  aria-label={social.label}
                 >
                   {social.icon}
-                </a>
+                </motion.a>
               ))}
             </motion.div>
           </div>
 
           {/* Right Side - Form */}
-          <div className="w-full lg:w-4/5">
+          <div className="w-full lg:w-3/5">
             <motion.div
               variants={fadeIn}
-              className="bg-base-200 text-base-content rounded-xl shadow-lg overflow-hidden"
+              className="bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700 shadow-lg overflow-hidden"
             >
-              <div className="p-2 lg:p-8">
-                <h3 className="text-2xl font-bold text-base-content mb-2">
+              <div className="p-6 lg:p-8">
+                <h3 className="text-2xl font-bold text-white mb-2">
                   Send Me a Message
                 </h3>
-                <p className="text-base-content mb-6">
-                  Fill out the form below and I'll get back to you within 24
-                  hours.
+                <p className="text-gray-400 mb-6">
+                  Fill out the form below and I'll get back to you within 24 hours.
                 </p>
 
                 <form className="space-y-5">
@@ -179,14 +182,14 @@ export default function Contact() {
                     <div>
                       <label
                         htmlFor="name"
-                        className="block text-sm font-medium text-base-content mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-2"
                       >
                         Full Name
                       </label>
                       <input
                         type="text"
                         id="name"
-                        className="w-full px-4 py-3 rounded-lg border border-primary focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+                        className="w-full px-4 py-3 rounded-lg bg-gray-700/50 border border-gray-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/30 outline-none transition text-white placeholder-gray-500"
                         placeholder="John Doe"
                         required
                       />
@@ -194,14 +197,14 @@ export default function Contact() {
                     <div>
                       <label
                         htmlFor="email"
-                        className="block text-sm font-medium text-base-content mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-2"
                       >
                         Email Address
                       </label>
                       <input
                         type="email"
                         id="email"
-                        className="w-full px-4 py-3 rounded-lg border border-primary focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+                        className="w-full px-4 py-3 rounded-lg bg-gray-700/50 border border-gray-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/30 outline-none transition text-white placeholder-gray-500"
                         placeholder="your@email.com"
                         required
                       />
@@ -211,14 +214,14 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="subject"
-                      className="block text-sm font-medium text-base-content mb-1"
+                      className="block text-sm font-medium text-gray-300 mb-2"
                     >
                       Subject
                     </label>
                     <input
                       type="text"
                       id="subject"
-                      className="w-full px-4 py-3 rounded-lg border border-primary focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+                      className="w-full px-4 py-3 rounded-lg bg-gray-700/50 border border-gray-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/30 outline-none transition text-white placeholder-gray-500"
                       placeholder="What's this about?"
                       required
                     />
@@ -227,14 +230,14 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-base-content mb-1"
+                      className="block text-sm font-medium text-gray-300 mb-2"
                     >
                       Your Message
                     </label>
                     <textarea
                       id="message"
                       rows="5"
-                      className="w-full px-4 py-3 rounded-lg border border-primary focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+                      className="w-full px-4 py-3 rounded-lg bg-gray-700/50 border border-gray-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/30 outline-none transition text-white placeholder-gray-500"
                       placeholder="Tell me about your project..."
                       required
                     ></textarea>
@@ -242,8 +245,8 @@ export default function Contact() {
 
                   <motion.button
                     type="submit"
-                    className="w-full bg-primary hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all flex items-center justify-center space-x-2"
-                    whileHover={{ scale: 1.02 }}
+                    className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-medium py-3 px-6 rounded-lg transition-all flex items-center justify-center space-x-2 hover:shadow-lg hover:shadow-cyan-500/20"
+                    whileHover={{ y: -3 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     <FaPaperPlane />
@@ -256,7 +259,7 @@ export default function Contact() {
             {/* Map Section */}
             <motion.div
               variants={fadeIn}
-              className="mt-8 rounded-xl overflow-hidden shadow-lg"
+              className="mt-8 rounded-xl overflow-hidden border border-gray-700 shadow-lg"
             >
               <iframe
                 title="Map Location"

@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="sticky top-0 z-50 bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 backdrop-blur-md border-b border-white/10 shadow-lg"
+      className="sticky top-0 z-50 bg-gradient-to-r from-cyan-900 via-indigo-900 to-purple-900 backdrop-blur-md border-b border-white/10 shadow-lg"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100 }}
@@ -67,7 +67,7 @@ export default function Navbar() {
           {/* Logo/Brand */}
           <motion.div className="flex-shrink-0" whileHover={{ scale: 1.05 }}>
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-extrabold bg-gradient-to-r from-pink-500 to-purple-400 bg-clip-text text-transparent">
+              <span className="text-2xl font-extrabold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
                 Sabbir.Dev
               </span>
             </Link>
@@ -156,10 +156,10 @@ export default function Navbar() {
 
             {/* Resume Button */}
             <motion.a
-              href="/resume.pdf"
+              href="https://drive.google.com/file/d/16fhuykShX0KLvEiYTlDYKWP8pDGKbnpX/view?usp=sharing"
               target="_blank"
               download
-              className="ml-4 px-4 py-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-medium text-sm shadow-lg"
+              className="ml-4 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-medium text-sm shadow-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
