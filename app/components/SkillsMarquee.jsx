@@ -48,7 +48,7 @@ const SkillsMarquee = () => {
   ];
 
   return (
-    <div className="relative overflow-hidden p-8 mb-14 bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 shadow-2xl mt-8 rounded-2xl">
+    <div id="skills" className="relative overflow-hidden p-8 mb-14 bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 shadow-2xl mt-8 rounded-2xl">
       {/* Glow effects */}
       <div className="absolute -top-20 -left-20 w-64 h-64 bg-purple-500 rounded-full filter blur-3xl opacity-10"></div>
       <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-cyan-500 rounded-full filter blur-3xl opacity-10"></div>

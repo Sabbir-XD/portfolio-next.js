@@ -15,7 +15,9 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "#about" },
-    { name: "Portfolio", path: "#Portfolio" },
+    { name: "Skills", path: "#skills" },
+    { name: "Education", path: "#education" },
+    { name: "Portfolio", path: "#portfolio" },
     { name: "Contact", path: "#contact" },
   ];
 
@@ -107,53 +109,6 @@ export default function Navbar() {
 
           {/* Right side icons + Resume button */}
           <div className="flex items-center space-x-4">
-            {/* Search icon */}
-            <motion.button
-              className="p-1 rounded-full text-gray-300 hover:text-pink-400 focus:outline-none"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </motion.button>
-
-            {/* Notification */}
-            <motion.button
-              className="p-1 rounded-full text-gray-300 hover:text-pink-400 focus:outline-none relative"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                />
-              </svg>
-              <motion.span
-                className="absolute top-0 right-0 h-2 w-2 rounded-full bg-pink-500"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-              />
-            </motion.button>
-
             {/* Resume Button */}
             <motion.a
               href="https://drive.google.com/file/d/16fhuykShX0KLvEiYTlDYKWP8pDGKbnpX/view?usp=sharing"
