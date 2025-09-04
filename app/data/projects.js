@@ -77,28 +77,6 @@ export const projects = [
       "Integrate analytics dashboard for admin insights",
     ],
   },
-  // {
-  //   id: 4,
-  //   title: "Espresso Emporium",
-  //   image: "https://i.ibb.co/PdVSR94/coffee.png",
-  //   technologies: ["React", "Tailwind", "Firebase", "MongoDB", "Express"],
-  //   description:
-  //     "A Firebase-authenticated coffee ordering web application built with modern web technologies. Users can register, login, and enjoy a smooth UI experience. The app uses Firebase for authentication and MongoDB for efficient data storage.",
-  //   liveLink: "https://coffee-project-auth-fb3c5.web.app/",
-  //   githubLink: "https://github.com/Sabbir-XD/Coffee-Project-Client",
-  //   challenges: [
-  //     "Integrating Firebase Authentication and MongoDB in Database",
-  //     "Implementing Large Input form data handling",
-  //     "Creating a seamless UX for comments, wishlist toggles, and feature detection.",
-  //   ],
-  //   improvements: [
-  //     "Add product reviews and user rating system for menu items",
-  //     "Implement AI-based dish recommendation engine",
-  //     "Enhance mobile user experience with faster navigation and animations",
-  //     "Add multi-language support for wider accessibility",
-  //     "Integrate analytics dashboard for admin insights",
-  //   ],
-  // },
   {
     id: 4,
     title: "Public Jobs",
@@ -121,4 +99,26 @@ export const projects = [
       "Integrate analytics dashboard for admin insights",
     ],
   },
+  // {
+  //   id: 5,
+  //   title: "Espresso Emporium",
+  //   image: "https://i.ibb.co/PdVSR94/coffee.png",
+  //   technologies: ["React", "Tailwind", "Firebase", "MongoDB", "Express"],
+  //   description:
+  //     "A Firebase-authenticated coffee ordering web application built with modern web technologies. Users can register, login, and enjoy a smooth UI experience. The app uses Firebase for authentication and MongoDB for efficient data storage.",
+  //   liveLink: "https://coffee-project-auth-fb3c5.web.app/",
+  //   githubLink: "https://github.com/Sabbir-XD/Coffee-Project-Client",
+  //   challenges: [
+  //     "Integrating Firebase Authentication and MongoDB in Database",
+  //     "Implementing Large Input form data handling",
+  //     "Creating a seamless UX for comments, wishlist toggles, and feature detection.",
+  //   ],
+  //   improvements: [
+  //     "Add product reviews and user rating system for menu items",
+  //     "Implement AI-based dish recommendation engine",
+  //     "Enhance mobile user experience with faster navigation and animations",
+  //     "Add multi-language support for wider accessibility",
+  //     "Integrate analytics dashboard for admin insights",
+  //   ],
+  // },
 ];
