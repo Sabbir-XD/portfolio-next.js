@@ -1,134 +1,134 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaDownload } from "react-icons/fa";
-import developer1 from "@/public/sabir-01.jpg";
-import developer2 from "@/public/sabir-02.jpg";
+import { FaDownload, FaArrowDown } from "react-icons/fa";
+import profileImage from "@/public/professional-pic.jpg"; // ← Use your best professional photo
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-2xl">
-      {/* Background glow */}
-      <div className="absolute -top-20 -left-20 w-64 h-64 bg-purple-500 rounded-full filter blur-3xl opacity-10"></div>
-      <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-cyan-500 rounded-full filter blur-3xl opacity-10"></div>
+    <section className="relative min-h-screen flex items-center bg-slate-950 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(at_top_right,#4f46e510_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(at_bottom_left,#7e22ce10_0%,transparent_50%)]" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col lg:flex-row-reverse items-center justify-between gap-12 min-h-screen">
-        {/* Right side - Images */}
-        <div className="relative w-full lg:w-1/2 flex justify-center items-center h-[500px]">
-          {/* Top floating image */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{
-              opacity: 1,
-              y: [0, 50, 0],
-              transition: {
-                y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-                opacity: { duration: 0.8 }
-              }
-            }}
-            className="absolute top-0 right-10"
-          >
-            <Image
-              src={developer1}
-              alt="Developer working"
-              width={280}
-              height={350}
-              className="object-cover rounded-tr-[50px] rounded-bl-[50px] border-l-4 border-b-4 border-cyan-400 shadow-2xl"
-              priority
-            />
-          </motion.div>
-
-          {/* Bottom floating image */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{
-              opacity: 1,
-              x: [0, 30, 0],
-              transition: {
-                x: { duration: 7, delay: 1, repeat: Infinity, ease: "easeInOut" },
-                opacity: { duration: 0.8, delay: 0.4 }
-              }
-            }}
-            className="absolute bottom-0 left-10"
-          >
-            <Image
-              src={developer2}
-              alt="Developer coding"
-              width={280}
-              height={350}
-              className="object-cover rounded-tl-[50px] rounded-br-[50px] border-r-4 border-t-4 border-purple-400 shadow-2xl"
-              priority
-            />
-          </motion.div>
-        </div>
-
-        {/* Left side - Content */}
-        <div className="w-full lg:w-1/2 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
-              Hi, I'm{" "}
-              <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-                Sabbir
-              </span>
-            </h1>
-
-            <motion.h2
-              className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-4"
-              animate={{
-                color: ["#38bdf8", "#a78bfa", "#38bdf8"],
-                transition: { duration: 8, repeat: Infinity }
-              }}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-16 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Content */}
+          <div className="lg:col-span-7 space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              Frontend Developer
-            </motion.h2>
+              <p className="text-cyan-400 font-medium tracking-[3px] text-sm mb-2">
+                WELCOME TO MY PORTFOLIO
+              </p>
 
-            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-lg">
-              Building full-stack applications with MongoDB, Express, React & Node.js.
-              Passionate about creating efficient, scalable web solutions.
-            </p>
+              <h1 className="text-6xl md:text-7xl lg:text-[5.2rem] font-bold leading-tight tracking-tighter text-white">
+                Hi, I'm{" "}
+                <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                  Sabbir
+                </span>
+              </h1>
 
-            <div className="flex flex-wrap gap-4">
+              <motion.h2
+                className="text-4xl md:text-5xl font-semibold text-slate-300 mt-3"
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{ duration: 6, repeat: Infinity }}
+              >
+                MERN Stack Developer
+              </motion.h2>
+
+              <p className="text-lg md:text-xl text-slate-400 max-w-2xl mt-6 leading-relaxed">
+                I craft exceptional digital experiences using modern web
+                technologies. Turning ideas into clean, responsive, and
+                high-performance applications.
+              </p>
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex flex-wrap gap-4 pt-4"
+            >
               <motion.a
                 href="#contact"
-                className="px-8 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-medium shadow-lg hover:shadow-xl hover:shadow-cyan-500/30 transition-all"
+                className="px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold text-lg shadow-xl shadow-indigo-500/30 hover:shadow-2xl hover:shadow-indigo-500/40 flex items-center gap-3 transition-all"
                 whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.97 }}
               >
                 Hire Me
+                <FaArrowDown className="text-sm" />
               </motion.a>
 
               <motion.a
-                href="https://drive.google.com/file/d/16fhuykShX0KLvEiYTlDYKWP8pDGKbnpX/view?usp=sharing"
+                href="https://drive.google.com/file/d/119biCNnT7rgf48yrFTKtqFqhWhl8oQb8/view?usp=sharing?usp=sharing"
                 target="_blank"
-                download
-                className="px-8 py-3 rounded-full border-2 border-gray-600 text-white font-medium flex items-center gap-2 hover:bg-gray-800/50 transition-colors"
+                className="px-8 py-4 rounded-2xl border-2 border-slate-600 hover:border-slate-400 text-white font-semibold text-lg flex items-center gap-3 transition-all"
                 whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.97 }}
               >
                 <FaDownload /> Download Resume
               </motion.a>
+            </motion.div>
+
+            {/* Trust Line */}
+            <div className="pt-6 flex items-center gap-8 text-sm text-slate-500">
+              <div>✦ Available for Freelance</div>
+              <div>✦ Based in Bangladesh</div>
+            </div>
+          </div>
+
+          {/* Right Side - Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="lg:col-span-5 flex justify-center lg:justify-end"
+          >
+            <div className="relative">
+              {/* Glow Effect */}
+              <div className="absolute -inset-6 bg-gradient-to-br from-indigo-500 via-purple-500 to-cyan-500 rounded-[3rem] opacity-20 blur-2xl" />
+
+              <Image
+                src={profileImage}
+                alt="Sabbir Hossain"
+                width={520}
+                height={620}
+                priority
+                className="rounded-3xl shadow-2xl border border-white/10 relative z-10 object-cover"
+              />
+
+              {/* Floating Badge */}
+              <motion.div
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 4, repeat: Infinity }}
+                className="absolute -bottom-6 -right-6 bg-slate-900 border border-slate-700 rounded-2xl px-6 py-4 shadow-xl"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                  <span className="text-sm font-medium text-slate-300">
+                    Open to Opportunities
+                  </span>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 1.5 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
+        animate={{ opacity: [0.3, 1, 0.3] }}
+        transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-          <motion.div
-            className="w-1 h-2 bg-gray-400 rounded-full mt-2"
-            animate={{ opacity: [0, 1, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5, delay: 0.3 }}
-          />
-        </div>
+        <span className="text-xs tracking-widest text-slate-500">SCROLL</span>
+        <FaArrowDown className="text-slate-400" />
       </motion.div>
     </section>
   );

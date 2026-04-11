@@ -3,65 +3,85 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { projects } from "../data/projects";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 export default function Portfolio() {
   return (
-    <section 
-      id="portfolio" 
-      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden mt-8 rounded-2xl"
+    <section
+      id="portfolio"
+      className="relative py-24 bg-slate-950 overflow-hidden"
     >
-      {/* Glow effects */}
-      <div className="absolute -top-20 -left-20 w-64 h-64 bg-purple-500 rounded-full filter blur-3xl opacity-10"></div>
-      <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-cyan-500 rounded-full filter blur-3xl opacity-10"></div>
+      {/* Background Glows */}
+      <div className="absolute top-10 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-16 text-white">
-          <span className="text-gray-300">My</span>{" "}
-          <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-            Projects
-          </span>
-        </h2>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-5xl md:text-6xl font-bold tracking-tight">
+            Featured{" "}
+            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              Projects
+            </span>
+          </h2>
+          <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto">
+            Selected works that showcase my skills in frontend development and
+            problem solving
+          </p>
+        </motion.div>
 
-        {/* Project Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {projects.map((project) => (
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              whileHover={{ y: -10 }}
-              className="group relative overflow-hidden rounded-2xl border border-gray-700 bg-gray-800/50 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300"
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ y: -12 }}
+              className="group bg-slate-900/70 border border-slate-700 hover:border-indigo-500/40 rounded-3xl overflow-hidden shadow-xl transition-all duration-500"
             >
-              {/* Project Image */}
-              <div className="relative h-60 overflow-hidden">
+              {/* Image Container */}
+              <div className="relative h-64 overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-300 text-sm">
-                      {project.description.slice(0, 100)}...
-                    </p>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
+
+                {/* Live Badge */}
+                {project.liveLink && (
+                  <div className="absolute top-4 right-4 bg-emerald-500 text-white text-xs font-medium px-3 py-1 rounded-full flex items-center gap-1">
+                    <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                    LIVE
                   </div>
-                </div>
+                )}
               </div>
 
-              {/* Card Footer */}
-              <div className="p-6">
+              {/* Content */}
+              <div className="p-8">
+                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-indigo-300 transition-colors">
+                  {project.title}
+                </h3>
+
+                <p className="text-slate-400 line-clamp-3 mb-6">
+                  {project.description}
+                </p>
+
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, index) => (
-                    <span 
-                      key={index}
-                      className="text-xs px-2 py-1 rounded-full bg-gray-700 text-gray-300"
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {project.technologies.slice(0, 5).map((tech, i) => (
+                    <span
+                      key={i}
+                      className="text-xs px-3 py-1 bg-slate-800 text-slate-300 rounded-full border border-slate-700"
                     >
                       {tech}
                     </span>
@@ -72,18 +92,19 @@ export default function Portfolio() {
                 <div className="flex gap-3">
                   <Link
                     href={`/projects/${project.id}`}
-                    className="flex-1 text-center px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-medium hover:shadow-lg hover:shadow-cyan-500/20 transition-all"
+                    className="flex-1 text-center py-3.5 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-medium hover:shadow-xl hover:shadow-indigo-500/30 transition-all"
                   >
                     View Details
                   </Link>
+
                   {project.liveLink && (
                     <a
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 text-center px-4 py-2 rounded-lg border border-gray-600 text-gray-300 hover:bg-gray-700/50 hover:text-white transition-colors"
+                      className="flex-1 text-center py-3.5 rounded-2xl border border-slate-600 hover:bg-slate-800 text-slate-300 hover:text-white transition-all flex items-center justify-center gap-2"
                     >
-                      Live Demo
+                      Live Demo <FaExternalLinkAlt className="text-sm" />
                     </a>
                   )}
                 </div>

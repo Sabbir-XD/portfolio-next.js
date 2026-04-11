@@ -1,72 +1,105 @@
 "use client";
 import { motion } from "framer-motion";
-import { FaGraduationCap } from "react-icons/fa";
+import { FaGraduationCap, FaCalendarAlt } from "react-icons/fa";
 
 export default function Education() {
   const education = [
     {
-      degree: "Bachelor of Business Studies in Accounting",
+      degree: "Bachelor of Business Administration (BBA) in Accounting",
       institution: "Mohammadpur Central University College, Dhaka",
       year: "2019 - 2025",
       description:
-        "Specialized in Accounting under the BBS program. Coursework included Financial Accounting, Cost & Management Accounting, Auditing, Taxation, Corporate Finance, Accounting Theory and Financial Reporting. Completed projects on financial statement analysis and auditing fundamentals. Gained practical skills in Excel (pivot tables & advanced formulas), basic Tally / QuickBooks usage, report preparation, and understanding of regulatory & ethical accounting practices.",
+        "Specialized in Accounting with focus on Financial Accounting, Cost & Management Accounting, Auditing, Taxation, and Corporate Finance. Developed strong skills in financial analysis, Excel (Advanced), and accounting software.",
     },
     {
       degree: "Higher Secondary Certificate (HSC)",
       institution: "BCIC College, Dhaka",
       year: "2017 - 2019",
       description:
-        "Concentrated on Business Studies with emphasis on Accounting fundamentals, Business Organization, Economics and Statistics. Built a strong foundation in bookkeeping and basic financial concepts, and participated in commerce seminars and college-level accounting activities that prepared me for BBS studies.",
+        "Business Studies group with strong foundation in Accounting, Economics, Business Organization, and Statistics. Actively participated in commerce seminars and academic competitions.",
     },
     {
       degree: "Secondary School Certificate (SSC)",
       institution: "Govt. Progati High School, Dhaka",
       year: "2015 - 2017",
       description:
-        "Completed secondary education with solid fundamentals in Mathematics and English. Developed early interest in numeracy, logical problem solving and basic computer literacy — skills that supported later studies in accounting and finance.",
+        "Completed secondary education with excellent performance in Mathematics, English, and Science. Built early foundation in logical thinking and computer basics.",
     },
   ];
-  
 
   return (
     <section
       id="education"
-      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden mt-8 rounded-2xl"
+      className="relative py-24 bg-slate-950 overflow-hidden"
     >
-      {/* Glow Effects */}
-      <div className="absolute -top-20 left-10 w-72 h-72 bg-purple-500 rounded-full filter blur-3xl opacity-10"></div>
-      <div className="absolute -bottom-20 right-10 w-72 h-72 bg-cyan-500 rounded-full filter blur-3xl opacity-10"></div>
+      {/* Background Glows */}
+      <div className="absolute top-20 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
 
-      <div className="max-w-5xl mx-auto relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-16 text-white">
-          <span className="text-gray-300">My</span>{" "}
-          <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-            Education
-          </span>
-        </h2>
+      <div className="max-w-5xl mx-auto px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-white">
+            My{" "}
+            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              Education
+            </span>
+          </h2>
+          <p className="text-slate-400 mt-4 text-lg">
+            Academic journey that shaped my analytical and technical mindset
+          </p>
+        </motion.div>
 
-        <div className="relative border-l-2 border-gray-700">
+        {/* Timeline */}
+        <div className="relative max-w-3xl mx-auto">
+          {/* Vertical Line */}
+          <div className="absolute left-8 top-6 bottom-6 w-[3px] bg-gradient-to-b from-indigo-500 via-purple-500 to-transparent" />
+
           {education.map((edu, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="mb-12 ml-6 relative"
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              className="relative mb-16 last:mb-0 pl-20"
             >
-              {/* Icon */}
-              <span className="absolute -left-[29px] flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white shadow-lg">
-                <FaGraduationCap />
-              </span>
+              {/* Timeline Dot */}
+              <div className="absolute left-6 -translate-x-1/2 w-5 h-5 rounded-full border-4 border-slate-950 bg-gradient-to-br from-indigo-500 to-purple-500 shadow-lg shadow-purple-500/50" />
 
-              {/* Card */}
-              <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 border border-gray-700 transition-all duration-300">
-                <h3 className="text-xl font-semibold text-white">{edu.degree}</h3>
-                <p className="text-cyan-400 text-sm">{edu.institution}</p>
-                <span className="text-gray-400 text-xs">{edu.year}</span>
-                <p className="mt-3 text-gray-300 text-sm">{edu.description}</p>
-              </div>
+              {/* Education Card */}
+              <motion.div
+                whileHover={{ y: -8 }}
+                className="bg-slate-900/70 border border-slate-700 hover:border-indigo-500/30 rounded-3xl p-8 shadow-xl backdrop-blur-md transition-all duration-300 group"
+              >
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                  <div>
+                    <h3 className="text-2xl font-semibold text-white group-hover:text-indigo-300 transition-colors">
+                      {edu.degree}
+                    </h3>
+                    <p className="text-indigo-400 font-medium mt-1">
+                      {edu.institution}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-2 text-slate-400 bg-slate-800 px-4 py-2 rounded-2xl text-sm font-medium whitespace-nowrap">
+                    <FaCalendarAlt />
+                    {edu.year}
+                  </div>
+                </div>
+
+                <div className="mt-6 text-slate-300 leading-relaxed">
+                  {edu.description}
+                </div>
+
+                {/* Decorative Line */}
+                <div className="h-px w-16 bg-gradient-to-r from-indigo-500 to-transparent mt-8" />
+              </motion.div>
             </motion.div>
           ))}
         </div>

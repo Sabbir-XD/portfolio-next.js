@@ -35,7 +35,7 @@ export const projects = [
   {
     id: 2,
     title: "🍽️ Savory Spoon",
-    image: "https://i.ibb.co/DDtWMbVB/SAVOY-SPOON.png",
+    image: "https://i.ibb.co/G38HKvPX/resturent-management.png",
     technologies: ["React", "Node.js", "MongoDB", "Firebase", "express"],
     description:
       "Savory Spoon is a modern, responsive Restaurant Management Web Application built using the MERN Stack. This platform is designed to enhance the digital presence of restaurants, improve customer interaction, and streamline backend operations for better efficiency.",
