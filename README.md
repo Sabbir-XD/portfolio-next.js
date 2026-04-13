@@ -1,6 +1,6 @@
 # Sabbir Hossain | Portfolio
 
-![Portfolio Banner](https://sabbir-protfolio-beta.vercel.app/og-image.jpg)
+<img width="1351" height="612" alt="image" src="https://github.com/user-attachments/assets/1dd36d12-8c4a-4e08-abb1-59d306482310" />
 
 A modern, elegant, and high-performance personal portfolio built with **Next.js 15**, **Tailwind CSS**, and **Framer Motion**.
 
@@ -73,5 +73,4 @@ sabbir-portfolio/
 │   └── images/
 └── README.md
 --------------------
-<img width="1351" height="612" alt="image" src="https://github.com/user-attachments/assets/dfe6768a-ac80-4ff2-b810-bf165db91fb1" />
-------------------------
+
