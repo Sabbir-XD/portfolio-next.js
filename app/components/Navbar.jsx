@@ -21,7 +21,7 @@ export default function Navbar() {
     { name: "About", path: "#about" },
     { name: "Skills", path: "#skills" },
     { name: "Education", path: "#education" },
-    {name: "Experience", path: "#experience" },
+    { name: "Experience", path: "#experience" },
     { name: "Portfolio", path: "#portfolio" },
     { name: "Contact", path: "#contact" },
   ];
@@ -72,7 +72,7 @@ export default function Navbar() {
           <div className="flex items-center gap-x-5">
             {/* Resume Button */}
             <motion.a
-              href="https://drive.google.com/file/d/16fhuykShX0KLvEiYTlDYKWP8pDGKbnpX/view?usp=sharing"
+              href="https://drive.google.com/file/d/119biCNnT7rgf48yrFTKtqFqhWhl8oQb8/view?usp=sharing?usp=sharing"
               target="_blank"
               className="hidden sm:flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-semibold shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
