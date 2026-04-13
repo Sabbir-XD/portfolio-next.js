@@ -1,8 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
+
+import { FaCss3Alt } from "react-icons/fa";
 import {
   SiHtml5,
-  SiCss3,
   SiJavascript,
   SiReact,
   SiNextdotjs,
@@ -23,7 +24,7 @@ import {
 export default function Skills() {
   const frontendSkills = [
     { name: "HTML5", icon: <SiHtml5 className="text-orange-500" />, level: 95 },
-    { name: "CSS3", icon: <SiCss3 className="text-blue-500" />, level: 90 },
+    { name: "CSS3", icon: <FaCss3Alt className="text-blue-500" />, level: 90 },
     {
       name: "JavaScript",
       icon: <SiJavascript className="text-yellow-400" />,
